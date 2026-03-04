@@ -3,12 +3,6 @@ pipeline {
 
     stages {
 
-        stage('Clone Repository') {
-            steps {
-                git 'https://github.com/adithyakvv/CDD-docker-github-jenkins.git'
-            }
-        }
-
         stage('Build Project') {
             steps {
                 bat '.\\mvnw clean package'
@@ -26,5 +20,6 @@ pipeline {
                 bat 'docker run -d -p 8080:8080 springboot-app'
             }
         }
+
     }
 }
